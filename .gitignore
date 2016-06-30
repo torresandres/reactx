@@ -1,2 +1,8 @@
-node_modules
+.idea/
+node_modules/
+dist/
+static/dist/
+*.iml
+webpack-assets.json
+webpack-stats.json
 npm-debug.log
