@@ -1,0 +1,34 @@
+$visual-grid: false
+$visual-grid-color: rgba(red, 0.2)
+
+// Change the grid settings
+$column: 80px
+$gutter: 40px
+$max-width: 1360px
+$grid-columns: 12
+
+// Define your breakpoints
+$desktop-width: $max-width
+$desktop-cols: $grid-columns
+$desktop: new-breakpoint(min-width $max-width $grid-columns)
+
+$big-tablet-width: 900px
+$big-tablet-cols: 4
+$big-tablet: new-breakpoint(min-width $big-tablet-width $big-tablet-cols)
+
+$tablet-width: 670px
+$tablet-cols: 4
+$tablet: new-breakpoint(min-width $tablet-width $tablet-cols)
+
+$big-mobile-width: 440px
+$big-mobile-cols: 4
+$big-mobile: new-breakpoint(min-width $big-mobile-width $big-mobile-cols)
+
+$header-height: 120px
+$compose-height: 60px
+
+// Font settings
+$font-file-formats: eot woff2 woff ttf
+
+// Colors
+$primary-color: 'blue'

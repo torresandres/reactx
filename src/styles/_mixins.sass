@@ -1,0 +1,21 @@
+@mixin epsilon($nth)
+  &:nth-child(#{$nth})
+    margin-right: 0
+
+  &:not(:nth-child(#{$nth}))
+    margin-right: flex-gutter()
+
+  &:nth-child(#{$nth}+1)
+    clear: none
+
+@mixin wrapper
+  width: 100%
+  max-width: $big-tablet-width
+  margin-left: auto
+  margin-right: auto
+  padding-left: 10px
+  padding-right: 10px
+
+  @include media($desktop)
+    padding-left: 0
+    padding-right: 0

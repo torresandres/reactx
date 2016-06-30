@@ -1,0 +1,43 @@
+html
+  height: 100%
+
+body
+  @include size(100%)
+  margin: 0
+  overflow: hidden
+  background: #fafafa
+  font-family: "Roboto", Helvetica, Arial, sans-serif
+  color: material-color('grey')
+
+button
+  cursor: pointer
+
+i[data-icon]
+  font-family: 'Material Icons'
+  font-weight: normal
+  font-style: normal
+  font-size: 24px
+  display: inline-block
+  line-height: 1
+  text-transform: none
+  letter-spacing: normal
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+
+  -webkit-font-smoothing: antialiased
+  text-rendering: optimizeLegibility
+  -moz-osx-font-smoothing: grayscale
+  font-feature-settings: 'liga'
+
+  &[data-size="12"]
+    font-size: 12px
+
+  &[data-size="24"]
+    font-size: 24px
+
+  &[data-size="36"]
+    font-size: 36px
+
+  &[data-size="48"]
+    font-size: 48px
