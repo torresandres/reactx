@@ -15,7 +15,10 @@ const methods = ['get', 'post', 'put', 'patch', 'del'];
 // }
 function formatUrl(path) {
   let adjustedPath = path[0] !== '/' ? '/' + path : path;
-  let apiUri = config.apiHost + ':' + config.apiPort;
+  let apiUri = config.apiHost;
+  if (config.apiPort) {
+    apiUri += ':' + config.apiPort;
+  }
   if (path.charAt(0) !== '/') {
     apiUri = '';
     adjustedPath = adjustedPath.slice(1);
@@ -59,6 +62,8 @@ class __ApiClient {
         if (__SERVER__ && req.get('cookie')) {
           request.set('cookie', req.get('cookie'));
         }
+
+        request.set('Accept', 'application/json');
 
         if (data) {
           request.send(data);

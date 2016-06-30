@@ -3,13 +3,13 @@ require('babel-polyfill');
 const environment = {
   development: {
     isProduction: false,
-    apiHost: process.env.API_URL || 'http://localhost',
-    apiPort: process.env.API_PORT || '8080'
+    apiHost: 'https://yts.ag/api/v2',
+    apiPort: false
   },
   production: {
     isProduction: true,
-    apiHost: process.env.API_URL || 'http://localhost',
-    apiPort: process.env.API_PORT || '443'
+    apiHost: 'https://yts.ag/api/v2',
+    apiPort: false
   }
 }[process.env.NODE_ENV || 'development'];
 

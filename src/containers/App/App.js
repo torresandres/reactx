@@ -16,10 +16,6 @@ export default class App extends Component {
     children: PropTypes.object.isRequired,
   };
 
-  static contextTypes = {
-    movies: PropTypes.array.isRequired
-  };
-
   render() {
     const styles = require('./App.sass');
 
