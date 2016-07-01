@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { MovieItem } from 'components';
 
 export default class MovieList extends Component {
 
@@ -15,11 +16,9 @@ export default class MovieList extends Component {
 
     return (
       <section className={styles.container}>
-        {this.props.movies.map((movie, key) => {
-          return (
-            <p key={key}>{movie.title}</p>
-          );
-        })}
+        {this.props.movies.map((movie, key) =>
+            <MovieItem key={key} movie={movie} />
+        )}
       </section>
     );
   }
