@@ -1,12 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
-import { Header } from 'components';
+import { Header, Catalog } from 'components';
 import { search } from 'redux/modules/movies';
 
 @connect(
   state => ({
-    loadingMovies: state.movies.loading,
+    loading: state.movies.loading,
     movies: state.movies.movies,
   }), { search }
 )
@@ -14,7 +14,7 @@ import { search } from 'redux/modules/movies';
 export default class Home extends Component {
 
   static propTypes = {
-    loadingMovies: PropTypes.bool.isRequired,
+    loading: PropTypes.bool.isRequired,
     movies: PropTypes.array.isRequired,
     search: PropTypes.func.isRequired
   };
@@ -26,14 +26,7 @@ export default class Home extends Component {
       <div className={styles.container}>
         <Helmet title="Homepage"/>
         <Header search={this.props.search} />
-        <main>
-          {this.props.loadingMovies && <h1>Loading</h1>}
-          {this.props.movies.map((movie, key) => {
-            return (
-              <p key={key}>{movie.title}</p>
-            );
-          })}
-        </main>
+        {!this.props.loading && <Catalog movies={this.props.movies} />}
       </div>
     );
   }

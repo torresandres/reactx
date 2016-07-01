@@ -26,6 +26,7 @@ export default class Header extends Component {
 
   render() {
     const styles = require('./Header.sass');
+
     return (
       <header className={styles.header}>
         <form onSubmit={this.search}>
