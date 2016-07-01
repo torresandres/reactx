@@ -34,13 +34,9 @@ export default function reducer(state = initialState, action = {}) {
   }
 }
 
-export function search(searchTerm) {
+export function search(params) {
   return {
     types: [SEARCH, SEARCH_SUCCESS, SEARCH_FAIL],
-    promise: (client) => client.get('/list_movies.json', {
-      params: {
-        query_term: escape(searchTerm)
-      }
-    })
+    promise: client => client.get('/list_movies.json', {...params})
   };
 }

@@ -11,11 +11,17 @@ export default class Header extends Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.search({
+      sort_by: 'download_count'
+    });
+  }
+
   search = (event) => {
     event.preventDefault();
-    const searchTerm = this.refs.searchTerm.value;
-
-    this.props.search(searchTerm);
+    this.props.search({
+      query_term: escape(this.refs.searchTerm.value)
+    });
   }
 
   render() {

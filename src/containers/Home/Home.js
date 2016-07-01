@@ -21,7 +21,6 @@ export default class Home extends Component {
 
   render() {
     const styles = require('./Home.sass');
-    console.log('Movies:', this.props.movies);
 
     return (
       <div className={styles.container}>
