@@ -17,10 +17,10 @@ export default class App extends Component {
   };
 
   render() {
-    const styles = require('./App.sass');
+    require('./App.sass');
 
     return (
-      <div className={styles.app}>
+      <div id="app">
         {this.props.children}
       </div>
     );
