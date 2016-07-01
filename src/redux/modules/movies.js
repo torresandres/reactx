@@ -37,6 +37,6 @@ export default function reducer(state = initialState, action = {}) {
 export function search(params) {
   return {
     types: [SEARCH, SEARCH_SUCCESS, SEARCH_FAIL],
-    promise: client => client.get('/list_movies.json', {...params})
+    promise: client => client.get('/list_movies.json', {params: params})
   };
 }
