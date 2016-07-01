@@ -1,9 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 
-export default class Catalog extends Component {
+export default class MovieList extends Component {
 
   static propTypes = {
-    loading: PropTypes.bool.isRequired,
     movies: PropTypes.array.isRequired
   };
 
@@ -12,17 +11,16 @@ export default class Catalog extends Component {
   }
 
   render() {
-    const styles = require('./Catalog.sass');
+    const styles = require('./MovieList.sass');
 
     return (
-      <main className={styles.catalog}>
-        {this.props.loading && <h1>Loading</h1>}
+      <section className={styles.container}>
         {this.props.movies.map((movie, key) => {
           return (
             <p key={key}>{movie.title}</p>
           );
         })}
-      </main>
+      </section>
     );
   }
 

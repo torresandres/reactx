@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
-import { Header, Catalog } from 'components';
+import { Header, MovieList } from 'components';
 import { search } from 'redux/modules/movies';
 
 @connect(
@@ -26,7 +26,12 @@ export default class Home extends Component {
       <div className={styles.container}>
         <Helmet title="Homepage"/>
         <Header search={this.props.search} />
-        {!this.props.loading && <Catalog movies={this.props.movies} />}
+
+        <main className={styles.main}>
+          {!this.props.loading &&
+            <MovieList movies={this.props.movies} />
+          }
+        </main>
       </div>
     );
   }
