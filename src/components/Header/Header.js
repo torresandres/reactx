@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames';
 import { Icon } from 'components';
 
 export default class Header extends Component {
@@ -19,9 +20,12 @@ export default class Header extends Component {
 
   search = (event) => {
     event.preventDefault();
+
     this.props.search({
       query_term: escape(this.refs.searchTerm.value)
     });
+    this.refs.searchForm.reset();
+    this.refs.searchTerm.blur();
   }
 
   render() {
@@ -29,11 +33,14 @@ export default class Header extends Component {
 
     return (
       <header className={styles.header}>
-        <form onSubmit={this.search}>
-          <input ref="searchTerm" type="text" placeholder="Search" autoFocus />
-          <button>
-            <Icon name="search" size={12} />
-          </button>
+        <form className={styles.form} ref="searchForm" onSubmit={this.search}>
+          <label className={classNames(styles.button, styles.menu)}>
+            <Icon className={styles.icon} name="menu" />
+          </label>
+          <label className={classNames(styles.button, styles.search)}>
+            <input className={styles.input} ref="searchTerm" type="text" placeholder="Search" required />
+            <Icon className={styles.icon} name="search" />
+          </label>
         </form>
       </header>
     );
