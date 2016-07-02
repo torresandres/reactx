@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
-import { Header, MovieList } from 'components';
+import { Header, MovieList, Spinner } from 'components';
 import { search } from 'redux/modules/movies';
 
 @connect(
@@ -28,9 +28,8 @@ export default class Home extends Component {
         <Header search={this.props.search} />
 
         <main className={styles.main}>
-          {!this.props.loading &&
-            <MovieList movies={this.props.movies} />
-          }
+          {this.props.loading && <Spinner />}
+          {this.props.movies.length && <MovieList movies={this.props.movies} />}
         </main>
       </div>
     );

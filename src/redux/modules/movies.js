@@ -12,7 +12,8 @@ export default function reducer(state = initialState, action = {}) {
     case SEARCH:
       return {
         ...state,
-        loading: true
+        loading: true,
+        movies: []
       };
 
     case SEARCH_SUCCESS:
