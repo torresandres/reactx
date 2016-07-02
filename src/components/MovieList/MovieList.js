@@ -15,7 +15,7 @@ export default class MovieList extends Component {
     const styles = require('./MovieList.sass');
 
     return (
-      <section className={styles.container}>
+      <section className={styles.list}>
         {this.props.movies.map((movie, key) =>
             <MovieItem key={key} movie={movie} />
         )}

@@ -13,10 +13,14 @@ export default class MovieItem extends Component {
   render() {
     const styles = require('./MovieItem.sass');
     const movie = this.props.movie;
+    const srcset = [
+      movie.medium_cover_image + ' 230w',
+      movie.large_cover_image + ' 500w',
+    ];
 
     return (
-      <div className={styles.container}>
-        <span className={styles.title}>{movie.title}</span>
+      <div className={styles.movie}>
+        <img className={styles.cover} src={movie.medium_cover_image} srcSet={srcset} alt={movie.title_long} />
       </div>
     );
   }
