@@ -21,6 +21,9 @@ export default class Home extends Component {
 
   render() {
     const styles = require('./Home.sass');
+    const movies = this.props.movies;
+    const isLoading = this.props.loading;
+    const noResults = !movies.length && !isLoading;
 
     return (
       <div className={styles.container}>
@@ -28,8 +31,9 @@ export default class Home extends Component {
         <Header search={this.props.search} />
 
         <main className={styles.main}>
-          {this.props.loading && <Spinner />}
-          {this.props.movies.length && <MovieList movies={this.props.movies} />}
+          {isLoading && <Spinner />}
+          {movies.length > 0 && <MovieList movies={movies} />}
+          {noResults && <h3 className={styles.noResults}>No results</h3>}
         </main>
       </div>
     );

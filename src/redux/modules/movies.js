@@ -17,10 +17,11 @@ export default function reducer(state = initialState, action = {}) {
       };
 
     case SEARCH_SUCCESS:
+      const response = action.result.data;
       return {
         ...state,
         loading: false,
-        movies: action.result.data.movies
+        movies: response.movie_count ? response.movies : []
       };
 
     case SEARCH_FAIL:
