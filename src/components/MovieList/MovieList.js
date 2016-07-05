@@ -4,7 +4,8 @@ import { MovieItem } from 'components';
 export default class MovieList extends Component {
 
   static propTypes = {
-    movies: PropTypes.array.isRequired
+    movies: PropTypes.array.isRequired,
+    details: PropTypes.func
   };
 
   constructor(props) {
@@ -17,7 +18,7 @@ export default class MovieList extends Component {
     return (
       <section className={styles.list}>
         {this.props.movies.map((movie, key) =>
-            <MovieItem key={key} movie={movie} />
+          <MovieItem key={key} movie={movie} details={this.props.details} />
         )}
       </section>
     );

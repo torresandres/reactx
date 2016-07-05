@@ -5,7 +5,7 @@ html
   height: 100%
 
 body
-  @include size(100%)
+  @include size(100% auto)
   margin: 0
   background: material-color('grey', '100')
   font-family: "Roboto", Helvetica, Arial, sans-serif
@@ -28,7 +28,7 @@ i[data-icon]
   white-space: nowrap
   direction: ltr
 
-  @include user-select(none)  
+  @include user-select(none)
 
   -webkit-font-smoothing: antialiased
   text-rendering: optimizeLegibility
