@@ -28,12 +28,12 @@ export default class Home extends Component {
     const selectedMovie = this.props.movie;
     const isLoading = this.props.loading;
     const noResults = !movies.length && !isLoading;
-    const showList = !!movies.length && !selectedMovie;
+    const showList = !!movies.length;
 
     return (
       <div className={styles.container}>
         <Helmet title="Homepage"/>
-        {!selectedMovie && <Header search={this.props.search} />}
+        <Header search={this.props.search} />
 
         <main className={styles.main}>
           {/* Show spinner when loading */}
@@ -46,7 +46,7 @@ export default class Home extends Component {
           {noResults && <h3 className={styles.noResults}>No results</h3>}
 
           {/* Show movie details if a movie were selected */}
-          {selectedMovie && <MovieDetails movie={selectedMovie} />}
+          {selectedMovie && <MovieDetails movie={selectedMovie} details={this.props.details} />}
         </main>
       </div>
     );
